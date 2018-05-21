@@ -1,5 +1,7 @@
 # Custom video controls
 
+### [Demo site](https://zetdotcom.github.io/video-player/)
+
 ### TODOs:
 
 * add time on progress bar
