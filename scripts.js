@@ -2,6 +2,7 @@
 
 const player = document.querySelector('.player')
 const video = player.querySelector('.viewer');
+const call = player.querySelector('.player__call');
 const progress = player.querySelector('.progress');
 const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
@@ -15,6 +16,10 @@ function togglePlay() {
     ? 'play'
     : 'pause';
   video[method]();
+
+  call
+    .classList
+    .toggle("player__call__hidden");
 }
 
 function updateButton() {
