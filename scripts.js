@@ -3,6 +3,7 @@
 const player = document.querySelector('.player')
 const video = player.querySelector('.viewer');
 const call = player.querySelector('.player__call');
+const timer = player.querySelector('.player__timer');
 const progress = player.querySelector('.progress');
 const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
@@ -28,7 +29,6 @@ function updateButton() {
     : "❚ ❚";
   toggle.textContent = icon;
 
-  console.log(icon);
 }
 
 function skip() {
@@ -42,14 +42,21 @@ function handleRangeUpdate() {
 function handleProgress() {
   const percent = (video.currentTime / video.duration) * 100;
   progressBar.style.flexBasis = `${percent}%`;
+  const currentTime = parseInt(video.currentTime);
+  const currentMinutes = Math.floor(video.currentTime / 60);
+  let currentSeconds = Math.floor(video.currentTime % 60);
+  if (currentSeconds < 10) {
+    currentSeconds = `0${currentSeconds}`
+  }
+  const durationMinutes = Math.floor(video.duration / 60);
+  const durationSeconds = Math.floor(video.duration % 60);
+  timer.innerHTML = `${currentMinutes}:${currentSeconds}/${durationMinutes}:${durationSeconds}`;
 }
 
 function scrub(e) {
   const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
   video.currentTime = scrubTime;
   progressBar.style.flexBasis = `${scrubTime}px`;
-  // console.log(scrubTime);
-  console.log(e.offsetX, e.offsetY);
 }
 
 /* Hook up the event listeners */

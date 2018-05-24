@@ -50,12 +50,21 @@ body {
   position: absolute;
   font-size: 40px;
   margin: 20px;
-  /* transform: translate(60%, 150%); */
   opacity: 0.8;
 }
 
 .player__call__hidden {
   display: none;
+}
+
+.player__timer {
+  color: whitesmoke;
+  top: -20px;
+  position: absolute;
+  z-index: 10;
+  margin-left: 10px;
+  text-shadow: 1px 1px 3px darkgrey;
+  font-size: 18px;
 }
 
 .player__button {
@@ -84,7 +93,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* transform: translateY(100%) translateY(-5px); */
+  transform: translateY(100%) translateY(-5px);
   transition: all 0.3s;
   flex-wrap: wrap;
   background: rgba(0, 0, 0, 0.1);
